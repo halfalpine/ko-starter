@@ -7,6 +7,11 @@ var viewModel = function() {
   this.incrementCounter = function() {
     this.clickCount(this.clickCount() + 1);
   };
+
+  this.catLevel = ko.computed(function() {
+    let count = this.clickCount
+    if (this.clickCount)
+  });
 };
 
 ko.applyBindings(new viewModel());
