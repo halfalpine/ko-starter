@@ -1,30 +1,31 @@
 var viewModel = function() {
-  this.clickCount = ko.observable(0);
-  this.name = ko.observable('Tabby');
-  this.imgSrc = ko.observable('img/434164568_fea0ad4013_z.jpg');
-  this.imgAttribution = ko.observable('#');
+  let self = this;
 
-  this.incrementCounter = function() {
-    this.clickCount(this.clickCount() + 1);
+  self.clickCount = ko.observable(0);
+  self.name = ko.observable('Tabby');
+  self.imgSrc = ko.observable('img/434164568_fea0ad4013_z.jpg');
+  self.imgAttribution = ko.observable('#');
+
+  self.incrementCounter = function() {
+    self.clickCount(this.clickCount() + 1);
   };
 
   this.catLevel = ko.computed(function() {
-    let count = this.clickCount;
-    if (this.clickCount > 0 && this.clickCount < 10) {
-      this.catLevel = "Affectionate";
-    } else if (this.clickCount > 9 && this.clickCount > 20) {
-      this.catLevel = "Goofy";
-    } else if (this.clickCount > 19 && this.clickCount < 30) {
-      this.catLevel = "Hilarious";
-    } else if (this.clickCount > 29 && this.clickCount < 40) {
-      this.catLevel = "Catlike";
-    } else if (this.clickCount > 39 && this.clickCount < 50) {
-      this.clickCount = "Crazy cute";
-    } else if (this.clickCount > 49) {
-      this.clickCount = "Priceless";
+    let count = self.clickCount();
+    if (count > 0 && count < 10) {
+      return "Affectionate";
+    } else if (count > 9 && count < 20) {
+      return "Goofy";
+    } else if (count > 19 && count < 30) {
+      return "Hilarious";
+    } else if (count > 29 && count < 40) {
+      return "Catlike";
+    } else if (count > 39 && count < 50) {
+      return "Crazy cute";
+    } else if (count > 49) {
+      return "Priceless";
     }
   });
 };
-
 
 ko.applyBindings(new viewModel());
