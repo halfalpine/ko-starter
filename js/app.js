@@ -5,6 +5,7 @@ var viewModel = function() {
   self.name = ko.observable('Tabby');
   self.imgSrc = ko.observable('img/434164568_fea0ad4013_z.jpg');
   self.imgAttribution = ko.observable('#');
+  self.nicknames = ko.observable(['Tigger', 'Shadow', 'Kitty', 'Smoky', 'Angel']);
 
   self.incrementCounter = function() {
     self.clickCount(this.clickCount() + 1);
