@@ -8,12 +8,23 @@ var viewModel = function() {
     this.clickCount(this.clickCount() + 1);
   };
 
-/*
   this.catLevel = ko.computed(function() {
-    let count = this.clickCount
-    if (this.clickCount)
+    let count = this.clickCount;
+    if (this.clickCount > 0 && this.clickCount < 10) {
+      this.catLevel = "Affectionate";
+    } else if (this.clickCount > 9 && this.clickCount > 20) {
+      this.catLevel = "Goofy";
+    } else if (this.clickCount > 19 && this.clickCount < 30) {
+      this.catLevel = "Hilarious";
+    } else if (this.clickCount > 29 && this.clickCount < 40) {
+      this.catLevel = "Catlike";
+    } else if (this.clickCount > 39 && this.clickCount < 50) {
+      this.clickCount = "Crazy cute";
+    } else if (this.clickCount > 49) {
+      this.clickCount = "Priceless";
+    }
   });
 };
-*/
+
 
 ko.applyBindings(new viewModel());
