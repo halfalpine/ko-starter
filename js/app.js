@@ -1,18 +1,16 @@
 var viewModel = function() {
-  let self = this;
+  this.clickCount = ko.observable(0);
+  this.catName = ko.observable('Tabby');
+  this.imgSrc = ko.observable('img/434164568_fea0ad4013_z.jpg');
+  this.imgAttribution = ko.observable('#');
+  this.nicknames = ko.observableArray(['Sweetie', 'Bubbles', 'Llama', 'Bruce']);
 
-  self.clickCount = ko.observable(0);
-  self.name = ko.observable('Tabby');
-  self.imgSrc = ko.observable('img/434164568_fea0ad4013_z.jpg');
-  self.imgAttribution = ko.observable('#');
-  self.nicknames = ko.observable(['Tigger', 'Shadow', 'Kitty', 'Smoky', 'Angel']);
-
-  self.incrementCounter = function() {
-    self.clickCount(this.clickCount() + 1);
+  this.incrementCounter = function() {
+    this.clickCount(this.clickCount() + 1);
   };
 
   this.catLevel = ko.computed(function() {
-    let count = self.clickCount();
+    let count = this.clickCount();
     if (count > 0 && count < 10) {
       return "Affectionate";
     } else if (count > 9 && count < 20) {
@@ -29,4 +27,4 @@ var viewModel = function() {
   });
 };
 
-ko.applyBindings(new viewModel());
+ko.applyBindings(viewModel);
